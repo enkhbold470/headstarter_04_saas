@@ -14,8 +14,8 @@ const PostBoxSkeleton = ({
   caption: string;
 }) => {
   return (
-    <div className=" p-4">
-      <div className="border-2 border-opacity-20 shadow rounded-sm max-w-md">
+    <div className="p-4">
+      <div className="border-2 shadow rounded-xl max-w-md">
         <div className="flex items-center px-4 py-3">
           <Image
             src={avatar}
@@ -32,10 +32,12 @@ const PostBoxSkeleton = ({
           </div>
         </div>
 
-        <div className="">
+        <div className="border border-red-600">
           <Image
             src={image} // Use the 'image' parameter directly
             alt={`post of ${caption}`}
+            // fill
+            // sizes="w-[500]"
             width={500}
             height={500}
           />

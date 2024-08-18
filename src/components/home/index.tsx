@@ -4,7 +4,7 @@ import PostBox from "./postBox";
 
 export default function HeroHome() {
   return (
-    <div className="flex items-center justify-center border-2 border-red-500 mt-32">
+    <div className="flex items-center justify-center mt-32">
       <SignedIn>
         <PostBox />
       </SignedIn>
