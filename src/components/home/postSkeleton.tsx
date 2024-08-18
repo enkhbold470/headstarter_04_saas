@@ -32,7 +32,7 @@ const PostBoxSkeleton = ({
           </div>
         </div>
 
-        <div className="border border-red-600">
+        <div className="">
           <Image
             src={image} // Use the 'image' parameter directly
             alt={`post of ${caption}`}
