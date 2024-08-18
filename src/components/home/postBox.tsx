@@ -5,7 +5,6 @@ import { PostBoxSkeleton } from "./postSkeleton";
 import { Suspense } from "react";
 import { fetchPhotos, getCuratedPhotos } from "@/lib/pexels";
 
-import pexelsJson from "@/data/photos.json";
 const query = `${process.env.NEXT_PUBLIC_QUERY}`;
 export default function PostBox() {
   const [photos, setPhotos] = useState([]);
@@ -17,12 +16,15 @@ export default function PostBox() {
   useScrollSnap({ ref: scrollRef, duration: 200 });
   useEffect(() => {
     async function loadPhotos() {
-      const fetchedPhotos = await fetchPhotos(query);
+      const fetchedPhotos = await getCuratedPhotos(15);
       setPhotos(fetchedPhotos);
     }
     loadPhotos();
   }, []);
   // console.log(photos);
+  if (!photos) {
+    return <h1>Server is loading...</h1>;
+  }
 
   return (
     <div className="flex justify-center w-screen">
