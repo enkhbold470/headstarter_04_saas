@@ -4,7 +4,6 @@ import { fetchPhotos } from "@/lib/pexels";
 
 const query = `${process.env.NEXT_PUBLIC_QUERY}`;
 export default function Test() {
-  console.log(query);
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
     async function loadPhotos() {
