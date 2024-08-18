@@ -6,15 +6,23 @@ import { Suspense } from "react";
 import { fetchPhotos, getCuratedPhotos } from "@/lib/pexels";
 
 import pexelsJson from "@/data/photos.json";
-
+const query = `${process.env.NEXT_PUBLIC_QUERY}`;
 export default function PostBox() {
   const [photos, setPhotos] = useState([]);
   const scrollRef = useRef(null);
   // console.log(fetchPhotos("god"));
-  const data = Array(pexelsJson.photos.length)
+  const data = Array(photos.length)
     .fill(1)
     .map((i, e) => e + 1);
   useScrollSnap({ ref: scrollRef, duration: 200 });
+  useEffect(() => {
+    async function loadPhotos() {
+      const fetchedPhotos = await fetchPhotos(query);
+      setPhotos(fetchedPhotos);
+    }
+    loadPhotos();
+  }, []);
+  // console.log(photos);
 
   return (
     <div className="flex justify-center w-screen">
@@ -22,22 +30,20 @@ export default function PostBox() {
         className="flex flex-col justify-center items-center"
         ref={scrollRef}
       >
-        {data.map((content) => (
-          <div key={content}>
-            {/* <PostBoxSkeleton
-              image={fetchPhotos(query, 10).src.large2x}
-              avatar="https://avatars.githubusercontent.com/u/100000000?v=4"
-              name={fetchPhotos(query, 10).photographer}
-              location=" "
-              likes={1}
-              comments={1}
-              shares={1}
-              time="1"
-              caption="1"
-              isLiked={true}
-            /> */}
-          </div>
-        ))}
+        {photos.map((photoArray: any, index: number) => {
+          return (
+            <div key={index}>
+              <PostBoxSkeleton
+                key={index}
+                image={photoArray.src.large2x}
+                avatar={photoArray.src.tiny}
+                name={photoArray.photographer}
+                time="an hour ago"
+                caption={photoArray.alt}
+              />
+            </div>
+          );
+        })}
       </section>
     </div>
   );
