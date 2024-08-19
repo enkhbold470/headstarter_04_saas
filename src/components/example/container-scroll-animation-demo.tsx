@@ -10,12 +10,12 @@ export default function HeroScrollDemo() {
         <ContainerScroll
           titleComponent={
             <>
-              <h1 className="text-4xl font-semibold  ">
-                Unleash the power of <br />
-                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                  Scroll Animations
-                </span>
-              </h1>
+              <div className="flex flex-col items-center justify-end gap-4">
+                <h1 className="text-4xl font-semibold  ">
+                  Unleash the power of <br />
+                </h1>
+                <Image src={`/logo.svg`} alt="hero" width={500} height={200} />
+              </div>
             </>
           }
         >
