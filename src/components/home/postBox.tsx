@@ -4,19 +4,18 @@ import useScrollSnap from "react-use-scroll-snap";
 import { PostBoxSkeleton } from "./postSkeleton";
 import { Suspense } from "react";
 import { fetchPhotos, getCuratedPhotos } from "@/lib/pexels";
-
+const perPage = 15;
 const query = `${process.env.NEXT_PUBLIC_QUERY}`;
 export default function PostBox() {
   const [photos, setPhotos] = useState([]);
   const scrollRef = useRef(null);
-  // console.log(fetchPhotos("god"));
-  const data = Array(photos.length)
+  const data = Array(perPage)
     .fill(1)
     .map((i, e) => e + 1);
   useScrollSnap({ ref: scrollRef, duration: 200 });
   useEffect(() => {
     async function loadPhotos() {
-      const fetchedPhotos = await getCuratedPhotos(15);
+      const fetchedPhotos = await getCuratedPhotos(perPage);
       setPhotos(fetchedPhotos);
     }
     loadPhotos();
