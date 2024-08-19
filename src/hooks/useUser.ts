@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 
-interface UserData {
-  username: string;
-}
-
 export function useUser() {
-  const [user, setUser] = useState<UserData | null>(null);
+  const [user, setUser] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
