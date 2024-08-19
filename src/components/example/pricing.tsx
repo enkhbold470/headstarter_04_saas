@@ -14,6 +14,37 @@ import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+
+const plans = [
+  {
+    title: "Basic",
+    monthlyPrice: 10,
+    yearlyPrice: 100,
+    description: "Essential features you need to get started",
+    features: [
+      "Example Feature Number 1",
+      "Example Feature Number 2",
+      "Example Feature Number 3",
+    ],
+    actionLabel: "Get Started",
+    url: "/basic",
+  },
+  {
+    title: "Pro",
+    monthlyPrice: 25,
+    yearlyPrice: 250,
+    description: "Perfect for owners of small & medium businessess",
+    features: [
+      "Example Feature Number 1",
+      "Example Feature Number 2",
+      "Example Feature Number 3",
+    ],
+    actionLabel: "Get Started",
+    popular: true,
+    url: "/pro",
+  },
+];
+
 type PricingSwitchProps = {
   onSwitch: (value: string) => void;
 };
@@ -154,35 +185,6 @@ export default function Pricing() {
     setIsYearly(parseInt(value) === 1);
   };
 
-  const plans = [
-    {
-      title: "Basic",
-      monthlyPrice: 10,
-      yearlyPrice: 100,
-      description: "Essential features you need to get started",
-      features: [
-        "Example Feature Number 1",
-        "Example Feature Number 2",
-        "Example Feature Number 3",
-      ],
-      actionLabel: "Get Started",
-      url: "/basic",
-    },
-    {
-      title: "Pro",
-      monthlyPrice: 25,
-      yearlyPrice: 250,
-      description: "Perfect for owners of small & medium businessess",
-      features: [
-        "Example Feature Number 1",
-        "Example Feature Number 2",
-        "Example Feature Number 3",
-      ],
-      actionLabel: "Get Started",
-      popular: true,
-      url: "/pro",
-    },
-  ];
   return (
     <div className="py-8 mt-10">
       <PricingHeader
