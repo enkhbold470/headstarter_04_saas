@@ -10,12 +10,22 @@ export default function HeroScrollDemo() {
         <ContainerScroll
           titleComponent={
             <>
-              <h1 className="text-4xl font-semibold  ">
-                Unleash the power of <br />
-                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                  Scroll Animations
-                </span>
-              </h1>
+              <div className="flex flex-col items-center justify-end gap-4">
+                <h1 className="text-4xl font-semibold  ">
+                  Unleash the power of <br />
+                  <span className="flex items-center justify-center text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                    <Image
+                      src={"/black_circle.svg"}
+                      alt="hero"
+                      height={100}
+                      width={100}
+                      className="rounded-2xl object-cover h-full object-left-top"
+                      draggable={false}
+                    />
+                    urag
+                  </span>
+                </h1>
+              </div>
             </>
           }
         >
