@@ -11,7 +11,7 @@ export default function PremiumPage() {
   const handleSubscribe = () => {
     setIsRedirecting(true);
     // Redirect to the contact page
-    window.location.href = "mailto:contact@example.com";
+    window.location.href = "mailto:i@enk.icu";
     setTimeout(() => {
       setIsRedirecting(false);
     }, 3000);
