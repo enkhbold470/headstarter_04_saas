@@ -1,12 +1,9 @@
 "use client";
-import { useUser } from "@/hooks/useUser";
+
 import { useState } from "react";
-import { Spotlight } from "@/components/ui/spotlight";
 import Pricing from "@/components/example/pricing";
 export default function PremiumPage() {
-  const { user, loading, error } = useUser();
   const [isRedirecting, setIsRedirecting] = useState(false);
-  const userName = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
 
   const handleSubscribe = () => {
     setIsRedirecting(true);

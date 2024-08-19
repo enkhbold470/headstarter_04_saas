@@ -13,7 +13,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-
+import Link from "next/link";
 type PricingSwitchProps = {
   onSwitch: (value: string) => void;
 };
@@ -26,6 +26,7 @@ type PricingCardProps = {
   description: string;
   features: string[];
   actionLabel: string;
+  url: string;
   popular?: boolean;
   exclusive?: boolean;
 };
@@ -50,7 +51,7 @@ const PricingSwitch = ({ onSwitch }: PricingSwitchProps) => (
     className="w-40 mx-auto border rounded-xl"
     onValueChange={onSwitch}
   >
-    <TabsList className="py-6 px-2 ">
+    <TabsList>
       <TabsTrigger value="0" className="text-base">
         Monthly
       </TabsTrigger>
@@ -69,6 +70,7 @@ const PricingCard = ({
   description,
   features,
   actionLabel,
+  url,
   popular,
   exclusive,
 }: PricingCardProps) => (
@@ -128,10 +130,13 @@ const PricingCard = ({
       </CardContent>
     </div>
     <CardFooter className="mt-2">
-      <Button className=" relative inline-flex w-full items-center justify-center rounded-xl bg-white dark:bg-black px-6 font-medium  transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 border border-black dark:border-white hover:dark:bg-opacity-80">
+      <Link
+        href={`${url}`}
+        className=" relative inline-flex w-full items-center justify-center rounded-xl bg-white dark:bg-black py-2 px-6 font-medium  transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 border border-black dark:border-white hover:dark:bg-opacity-80"
+      >
         <div className="absolute -inset-0.5 -z-10 rounded-xl bg-gradient-to-b from-[#c7d2fe] to-[#8678f9] opacity-75 blur" />
         {actionLabel}
-      </Button>
+      </Link>
     </CardFooter>
   </Card>
 );
@@ -145,8 +150,9 @@ const CheckItem = ({ text }: { text: string }) => (
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
-  const togglePricingPeriod = (value: string) =>
+  const togglePricingPeriod = (value: string) => {
     setIsYearly(parseInt(value) === 1);
+  };
 
   const plans = [
     {
@@ -160,6 +166,7 @@ export default function Pricing() {
         "Example Feature Number 3",
       ],
       actionLabel: "Get Started",
+      url: "/basic",
     },
     {
       title: "Pro",
@@ -173,6 +180,7 @@ export default function Pricing() {
       ],
       actionLabel: "Get Started",
       popular: true,
+      url: "/pro",
     },
   ];
   return (
