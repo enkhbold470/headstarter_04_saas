@@ -128,7 +128,7 @@ const PricingCard = ({
       </CardContent>
     </div>
     <CardFooter className="mt-2">
-      <Button className=" relative inline-flex w-full items-center justify-center rounded-xl bg-black text-white dark:bg-white px-6 font-medium  dark:text-black transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+      <Button className=" relative inline-flex w-full items-center justify-center rounded-xl bg-white dark:bg-black px-6 font-medium  transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 border border-black dark:border-white hover:dark:bg-opacity-80">
         <div className="absolute -inset-0.5 -z-10 rounded-xl bg-gradient-to-b from-[#c7d2fe] to-[#8678f9] opacity-75 blur" />
         {actionLabel}
       </Button>
