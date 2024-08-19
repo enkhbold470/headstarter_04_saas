@@ -1,11 +1,12 @@
 import HeroScrollDemo from "@/components/example/container-scroll-animation-demo";
-import { SignIn, SignUp, SignedIn, SignedOut } from "@clerk/nextjs";
-import LayoutGridDemo from "@/components/example/layout-grid-demo";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+import PostBox from "./postBox";
+
 export default function HeroHome() {
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex items-center justify-center mt-32">
       <SignedIn>
-        <LayoutGridDemo />
+        <PostBox />
       </SignedIn>
       <SignedOut>
         <HeroScrollDemo />
