@@ -6,9 +6,27 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import FloatingNavbar from "@/components/example/floating-navbar-demo";
-export const metadata: Metadata = {
+const metadata = {
   title: "Zurag",
   description: "Zurag сошиал медиа платформ",
+  manifest: "/favicon_io/site.webmanifest",
+  generator: "Next.js",
+
+  keywords: ["photosharing", "zurag", "zuragMongolianApp"],
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
+  authors: [
+    { name: "Enkhbold Ganbold" },
+    {
+      name: "Enkhbold Ganbold",
+      url: "https://enk.icu",
+    },
+  ],
+  viewport:
+    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
+  icons: [
+    { rel: "apple-touch-icon", url: "/favicon_io/apple-touch-icon.png" },
+    { rel: "icon", url: "/favicon_io/apple-touch-icon.png" },
+  ],
 };
 
 export default function RootLayout({
@@ -19,10 +37,33 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="manifest" href="/favicon_io/site.webmanifest" />
+        <head>
+          <meta name="description" content={metadata.description} />
+          <meta name="generator" content={metadata.generator} />
+          <link rel="manifest" href={metadata.manifest} />
+          <meta name="keywords" content={metadata.keywords.join(", ")} />
+          {metadata.themeColor.map(({ media, color }, index) => (
+            <meta
+              key={index}
+              name="theme-color"
+              media={media}
+              content={color}
+            />
+          ))}
+          {metadata.authors.map(({ name, url }, index) => (
+            <meta
+              key={index}
+              name="author"
+              content={name}
+              {...(url && { href: url })}
+            />
+          ))}
+          <meta name="viewport" content={metadata.viewport} />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          {metadata.icons.map(({ rel, url }, index) => (
+            <link key={index} rel={rel} href={url} />
+          ))}
+        </head>
         <body className={`${GeistSans.className} font-medium`}>
           {/* <Navbar />
            */}
