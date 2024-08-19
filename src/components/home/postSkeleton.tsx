@@ -51,7 +51,7 @@ const PostBoxSkeleton = ({
             )} */}
           </div>
           <div className="flex">
-            <IconShare width={30} height={30} />
+            {/* <IconShare width={30} height={30} /> */}
           </div>
         </div>
         <div className="font-semibold text-sm mx-4 mt-2 mb-2">
