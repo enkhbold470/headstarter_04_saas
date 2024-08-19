@@ -45,8 +45,12 @@ const PricingHeader = ({
 );
 
 const PricingSwitch = ({ onSwitch }: PricingSwitchProps) => (
-  <Tabs defaultValue="0" className="w-40 mx-auto" onValueChange={onSwitch}>
-    <TabsList className="py-6 px-2">
+  <Tabs
+    defaultValue="0"
+    className="w-40 mx-auto border rounded-xl"
+    onValueChange={onSwitch}
+  >
+    <TabsList className="py-6 px-2 ">
       <TabsTrigger value="0" className="text-base">
         Monthly
       </TabsTrigger>
@@ -124,8 +128,8 @@ const PricingCard = ({
       </CardContent>
     </div>
     <CardFooter className="mt-2">
-      <Button className="relative inline-flex w-full items-center justify-center rounded-md bg-black text-white dark:bg-white px-6 font-medium  dark:text-black transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-        <div className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-[#c7d2fe] to-[#8678f9] opacity-75 blur" />
+      <Button className=" relative inline-flex w-full items-center justify-center rounded-xl bg-black text-white dark:bg-white px-6 font-medium  dark:text-black transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+        <div className="absolute -inset-0.5 -z-10 rounded-xl bg-gradient-to-b from-[#c7d2fe] to-[#8678f9] opacity-75 blur" />
         {actionLabel}
       </Button>
     </CardFooter>
@@ -170,22 +174,9 @@ export default function Pricing() {
       actionLabel: "Get Started",
       popular: true,
     },
-    {
-      title: "Enterprise",
-      price: "Custom",
-      description: "Dedicated support and infrastructure to fit your needs",
-      features: [
-        "Example Feature Number 1",
-        "Example Feature Number 2",
-        "Example Feature Number 3",
-        "Super Exclusive Feature",
-      ],
-      actionLabel: "Contact Sales",
-      exclusive: true,
-    },
   ];
   return (
-    <div className="py-8">
+    <div className="py-8 mt-10">
       <PricingHeader
         title="Pricing Plans"
         subtitle="Choose the plan that's right for you"
