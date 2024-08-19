@@ -17,31 +17,33 @@ import Link from "next/link";
 
 const plans = [
   {
-    title: "Basic",
-    monthlyPrice: 10,
-    yearlyPrice: 100,
-    description: "Essential features you need to get started",
+    title: "Zurag Basic",
+    monthlyPrice: 5,
+    yearlyPrice: 50,
+    description:
+      "Start sharing your photos and videos with essential features.",
     features: [
-      "Example Feature Number 1",
-      "Example Feature Number 2",
-      "Example Feature Number 3",
+      "Upload and share photos",
+      "Like and comment on posts",
+      "Basic privacy settings",
     ],
-    actionLabel: "Get Started",
-    url: "/basic",
+    actionLabel: "Join Now",
+    url: `${process.env.NEXT_PUBLIC_BASIC}`,
   },
   {
-    title: "Pro",
-    monthlyPrice: 25,
-    yearlyPrice: 250,
-    description: "Perfect for owners of small & medium businessess",
+    title: "Zurag Pro",
+    monthlyPrice: 15,
+    yearlyPrice: 150,
+    description:
+      "Perfect for power users who want to enhance their social media experience.",
     features: [
-      "Example Feature Number 1",
-      "Example Feature Number 2",
-      "Example Feature Number 3",
+      "Unlimited photo and video uploads",
+      "Advanced privacy controls",
+      "Priority support",
     ],
-    actionLabel: "Get Started",
+    actionLabel: "Upgrade Now",
     popular: true,
-    url: "/pro",
+    url: `${process.env.NEXT_PUBLIC_PRO}`,
   },
 ];
 
