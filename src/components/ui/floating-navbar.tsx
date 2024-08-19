@@ -8,7 +8,9 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { IconCrown } from "@tabler/icons-react";
 export const FloatingNav = ({
   navItems,
   className,
@@ -51,6 +53,9 @@ export const FloatingNav = ({
           className
         )}
       >
+        <Link href="/" className="flex items-center justify-center">
+          <Image src="/black_circle.svg" alt="logo" width={40} height={40} />
+        </Link>
         {navItems.map((navItem: any, idx: number) => (
           <Link
             key={`link=${idx}`}
@@ -60,21 +65,39 @@ export const FloatingNav = ({
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
+            <span className="hidden sm:block text-md">{navItem.name}</span>
           </Link>
         ))}
-        <div className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <SignedOut>
-            <SignInButton mode="modal" />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        </div>
-        {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button> */}
+
+        <Link href="/premium" className="flex items-center justify-center">
+          <span className="block sm:hidden">
+            <IconCrown className="h-5 w-5 text-yellow-500 " />
+          </span>
+          <span className="hidden sm:block text-md text-yellow-500">
+            Premium
+          </span>
+        </Link>
+
+        <SignedOut>
+          {/* <SignInButton mode="modal" /> */}
+          <Link
+            href="/sign-in"
+            className="border  relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-900 text-md"
+          >
+            <span>Sign In</span>
+            <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+          </Link>
+        </SignedOut>
+        <SignedIn>
+          <Link
+            href="/user-profile"
+            className="border   relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-900 text-md"
+          >
+            <span>Profile</span>
+            <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
+          </Link>
+          {/* <UserButton /> */}
+        </SignedIn>
       </motion.div>
     </AnimatePresence>
   );
