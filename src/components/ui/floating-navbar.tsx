@@ -80,13 +80,11 @@ export const FloatingNav = ({
 
         <SignedOut>
           {/* <SignInButton mode="modal" /> */}
-          <Link
-            href="/sign-in"
-            className="border  relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-900 text-md"
-          >
-            <span>Sign In</span>
+          <div className="border  relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-900 text-md">
+            {/* <span>Sign In</span> */}
+            <SignInButton />
             <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-          </Link>
+          </div>
         </SignedOut>
         <SignedIn>
           <Link
